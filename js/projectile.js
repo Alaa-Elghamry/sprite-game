@@ -1,3 +1,4 @@
+
 export class Projectile {
     constructor(game, x, y){
         this.game= game;
@@ -20,4 +21,5 @@ export class Projectile {
         context.fillstyle = 'yellow';
         fillRect(this.x, this.y, this.width, this.height);
     }
+
 }

@@ -1,3 +1,5 @@
+
+import { Projectile } from './projectile.js';
 const playerImage = new Image();
 playerImage.src = 'assets/imgs/player.png';
 export class Player {
@@ -19,6 +21,10 @@ export class Player {
   }
   draw(context) { 
       // context.drawImage(playerImage,0,0,this.width,this.height, this.x, this.y, this.width,this.height);
+      context.fillStyle = 'black'
       context.fillRect(this.x, this.y, this.width, this.height);
+  }
+  shootTop() {
+      this.projectiles.push(new Projectile(this.game, this.x, this.y));
   }
 }

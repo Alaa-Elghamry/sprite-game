@@ -14,7 +14,11 @@
          window.addEventListener('keydown', e => {
              if (((e.key === 'ArrowUp') || (e.key === 'ArrowDown')) && this.game.keys.indexOf(e.key) === -1) {
                  this.game.keys.push(e.key)
-         }});
+         }else if((e.key === ' ')){
+          this.game.player.shootTop();
+         }
+        
+        });
          window.addEventListener('keyup', e =>{
              if (this.game.keys.indexOf(e.key) > -1){
                  this.game.keys.splice (this.game.keys.indexOf(e.key), 1);
@@ -31,6 +35,7 @@
  this.x=0;
  this.y=0;
  this.keys =[];
+ this.projectiles = []
  this.player = new Player(this);
  this.projectile = new Projectile(this);
  this.input = new InputHandler(this);
