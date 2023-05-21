@@ -33,21 +33,24 @@
  this.y=0;
  this.keys =[];
  this.player = new Player(this);
- this.InputHandler = new InputHandler(this);
+ this.input = new InputHandler(this);
  }
  update() {
-// this.player.update();
+this.player.update();
  }
  draw(context) {
+  // this.update()
  this.player.draw(context);
  }
  }
 
  const game = new Game (canvas.width, canvas.height);
- console.log(game);
 
+
+// Animation Loop
  function animate() {
-   //  game.update();
+  ctx.clearRect(0,0,canvas.width,canvas.height)
+    game.update();
     game.draw(ctx);
  requestAnimationFrame(animate);
  }
