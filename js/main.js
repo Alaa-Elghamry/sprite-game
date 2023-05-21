@@ -1,4 +1,5 @@
  import { Player } from './player.js';
+ import { Projectile } from './projectile.js';
 
  window.addEventListener('load', function(){
  const canvas = document.getElementById('canvas1');
@@ -13,13 +14,11 @@
          window.addEventListener('keydown', e => {
              if (((e.key === 'ArrowUp') || (e.key === 'ArrowDown')) && this.game.keys.indexOf(e.key) === -1) {
                  this.game.keys.push(e.key)
-                console.log(this.game.keys);
          }});
          window.addEventListener('keyup', e =>{
              if (this.game.keys.indexOf(e.key) > -1){
                  this.game.keys.splice (this.game.keys.indexOf(e.key), 1);
              }
-             console.log(this.game.keys);
          });
    }
  }
@@ -33,6 +32,7 @@
  this.y=0;
  this.keys =[];
  this.player = new Player(this);
+ this.projectile = new Projectile(this);
  this.input = new InputHandler(this);
  }
  update() {
